@@ -1,0 +1,23 @@
+{
+  "name": "foxx-tracer-collector",
+  "version": "0.1.0",
+  "description": "A collector service for foxx-tracer",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RecallGraph/RecallGraph"
+  },
+  "main": "main.js",
+  "author": "Aditya Mukhopadhyay",
+  "license": "MIT",
+  "dependencies": {
+    "foxx-tracing": "RecallGraph/foxx-tracer#master"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-standard": "^4.0.0"
+  }
+}

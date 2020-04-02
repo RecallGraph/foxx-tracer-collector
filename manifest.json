@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json.schemastore.org/foxx-manifest",
+  "name": "foxx-tracer-collector",
+  "version": "0.0.1",
+  "description": "A collector service for foxx-tracer",
+  "keywords": [
+    "opentracing",
+    "distributed-tracing",
+    "apm"
+  ],
+  "engines": {
+    "arangodb": ">=3.5.0"
+  },
+  "author": "Aditya Mukhopadhyay",
+  "license": "MIT",
+  "main": "main.js",
+  "scripts": {
+    "setup": "scripts/setup.js",
+    "teardown": "scripts/teardown.js"
+  },
+  "configuration": {
+    "trace-sampling-rate": {
+      "description": "The probability of propagating a trace sample. Can be overriden by header param.",
+      "default": 1,
+      "type": "number",
+      "required": true
+    },
+    "reporter": {
+      "description": "The reporter implementation to use (noop|console|datadog).",
+      "default": "noop",
+      "type": "string",
+      "required": true
+    },
+    "dd-agent-url":  {
+      "description": "The Datadog agent URL where to publish finished spans (used by the datadog reporter).",
+      "default": "http://localhost:8126/v0.4/traces",
+      "type": "string",
+      "required": false
+    }
+  }
+}
