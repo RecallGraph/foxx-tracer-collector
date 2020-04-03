@@ -7,6 +7,12 @@
     "url": "https://github.com/RecallGraph/RecallGraph"
   },
   "main": "main.js",
+  "scripts": {
+    "setup": "grunt initialize",
+    "clean": "grunt clean",
+    "lint": "grunt eslint",
+    "bundle": "grunt dist"
+  },
   "author": "Aditya Mukhopadhyay",
   "license": "MIT",
   "dependencies": {
@@ -14,11 +20,30 @@
     "opentracing": "^0.14.4"
   },
   "devDependencies": {
+    "dotenv": "^7.0.0",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-node": "^8.0.1",
     "eslint-plugin-promise": "^4.1.1",
-    "eslint-plugin-standard": "^4.0.0"
+    "eslint-plugin-standard": "^4.0.0",
+    "grunt": "^1.1.0",
+    "grunt-contrib-clean": "^2.0.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-exec": "^3.0.0",
+    "gruntify-eslint": "^5.0.0",
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
   }
 }
