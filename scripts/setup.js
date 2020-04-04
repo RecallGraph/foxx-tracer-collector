@@ -1,7 +1,7 @@
 'use strict'
 
 const { db } = require('@arangodb')
-const { SERVICE_COLLECTIONS } = require('../lib/helpers')
+const { SERVICE_COLLECTIONS, createReportCron } = require('../lib/helpers')
 
 const { spans } = SERVICE_COLLECTIONS
 const documentCollections = [spans]
@@ -30,5 +30,26 @@ for (const localName of edgeCollections) {
     }
   }
 }
+
+const spanColl = db._collection(SERVICE_COLLECTIONS.spans)
+spanColl.ensureIndex({
+  type: 'ttl',
+  fields: ['dtime'],
+  expireAfter: 0
+})
+spanColl.ensureIndex({
+  type: 'persistent',
+  fields: ['ctime'],
+  unique: false
+})
+spanColl.ensureIndex({
+  type: 'persistent',
+  fields: ['data.context.trace_id'],
+  unique: false,
+  sparse: true
+})
+
+// Setup crons
+createReportCron()
 
 console.log('Finished setup.')

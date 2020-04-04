@@ -11,31 +11,35 @@
   "engines": {
     "arangodb": ">=3.5.0"
   },
+  "provides": {
+    "@RecallGraph/foxx-tracer-collector": "0.0.1"
+  },
   "author": "Aditya Mukhopadhyay",
   "license": "MIT",
   "main": "main.js",
   "scripts": {
     "setup": "scripts/setup.js",
-    "teardown": "scripts/teardown.js"
+    "teardown": "scripts/teardown.js",
+    "reportTraces": "scripts/reportTraces.js"
   },
   "configuration": {
-    "trace-sampling-rate": {
-      "description": "The probability of propagating a trace sample. Can be overriden by header param.",
-      "default": 1,
-      "type": "number",
-      "required": true
-    },
-    "reporter": {
-      "description": "The reporter implementation to use (noop|console|datadog).",
-      "default": "noop",
+    "reporters": {
+      "description": "The reporter implementation(s) to use (console|datadog). Use comma-separated list for multiple.",
+      "default": "console",
       "type": "string",
-      "required": true
+      "required": false
     },
     "dd-agent-url":  {
       "description": "The Datadog agent URL where to publish finished spans (used by the datadog reporter).",
       "default": "http://localhost:8126/v0.4/traces",
       "type": "string",
       "required": false
+    },
+    "reported-span-ttl":  {
+      "description": "The TTL (in seconds) for reported spans. A value < 60 is ignored and a TTL of 60 is used instead.",
+      "default": 3600,
+      "type": "number",
+      "required": true
     }
   }
 }

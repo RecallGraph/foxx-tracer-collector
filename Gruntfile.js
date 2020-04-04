@@ -58,21 +58,21 @@ module.exports = function (grunt) {
       options: {
         '--server': process.env.ARANGO_SERVER
       },
-      args: [process.env.EVSTORE_MOUNT_POINT]
+      args: [process.env.MOUNT_POINT]
     },
     install: {
       command: ['build', 'foxx', 'install'],
       options: {
         '--server': process.env.ARANGO_SERVER
       },
-      args: [process.env.EVSTORE_MOUNT_POINT]
+      args: [process.env.MOUNT_POINT]
     },
     replace: {
       command: ['build', 'foxx', 'replace'],
       options: {
         '--server': process.env.ARANGO_SERVER
       },
-      args: [process.env.EVSTORE_MOUNT_POINT]
+      args: [process.env.MOUNT_POINT]
     },
     bundle: {
       command: ['build', 'foxx', 'bundle'],
