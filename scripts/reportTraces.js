@@ -35,10 +35,16 @@ let traces = query`
   return spans
 `.toArray()
 let spanKeys = getSpanKeys(traces)
-const ttl = Math.max(module.context.service.configuration[['reported-span-ttl']], 60)
+const ttl = Math.max(module.context.service.configuration[['reported-span-ttl']], 300)
 
 if (spanKeys.length) {
-  reporters.forEach(reporter => reporter.report(traces))
+  reporters.forEach(reporter => {
+    try {
+      reporter.report(traces)
+    } catch (e) {
+      console.error(e)
+    }
+  })
 
   const dtime = time() + ttl
   markReported(spanKeys, dtime)
@@ -54,7 +60,13 @@ traces = query`
   return [s.data]
 `.toArray()
 if (traces.length) {
-  reporters.forEach(reporter => reporter.report(traces))
+  reporters.forEach(reporter => {
+    try {
+      reporter.report(traces)
+    } catch (e) {
+      console.error(e)
+    }
+  })
   spanKeys = getSpanKeys(traces)
   markReported(spanKeys, now)
 }

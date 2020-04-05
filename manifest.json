@@ -36,7 +36,7 @@
       "required": false
     },
     "reported-span-ttl":  {
-      "description": "The TTL (in seconds) for reported spans. A value < 60 is ignored and a TTL of 60 is used instead.",
+      "description": "The TTL (in seconds) for reported spans. A value < 300 is ignored and a TTL of 300 is used instead.",
       "default": 3600,
       "type": "number",
       "required": true
