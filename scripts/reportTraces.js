@@ -34,7 +34,6 @@ let traces = query`
   
   return spans
 `.toArray()
-console.debug({ traces })
 
 let spanKeys = getSpanKeys(traces)
 const ttl = Math.max(module.context.service.configuration[['reported-span-ttl']], 300)
@@ -87,8 +86,5 @@ function markReported (spanKeys, dtime) {
 }
 
 function getSpanKeys (traces) {
-  const spanKeys = traces.flat().map(span => span.context.span_id)
-  console.debug({ spanKeys })
-
-  return spanKeys
+  return traces.flat().map(span => span.context.span_id)
 }
