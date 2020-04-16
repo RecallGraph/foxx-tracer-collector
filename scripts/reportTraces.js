@@ -43,7 +43,7 @@ if (spanKeys.length) {
     try {
       reporter.report(traces)
     } catch (e) {
-      console.error(e)
+      console.error(e.message, e.stack)
     }
   })
 
@@ -65,7 +65,7 @@ if (traces.length) {
     try {
       reporter.report(traces)
     } catch (e) {
-      console.error(e)
+      console.error(e.message, e.stack)
     }
   })
   spanKeys = getSpanKeys(traces)

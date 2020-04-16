@@ -24,7 +24,7 @@
   },
   "configuration": {
     "reporters": {
-      "description": "The reporter implementation(s) to use (console|datadog). Use comma-separated list for multiple.",
+      "description": "The reporter implementation(s) to use (console|datadog|noop). Use comma-separated list for multiple.",
       "default": "console",
       "type": "string",
       "required": false
