@@ -1,7 +1,7 @@
 {
   "$schema": "http://json.schemastore.org/foxx-manifest",
   "name": "foxx-tracer-collector",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "description": "A collector service for foxx-tracer",
   "keywords": [
     "opentracing",
@@ -24,8 +24,8 @@
   },
   "configuration": {
     "reporters": {
-      "description": "The reporter implementation(s) to use (console|datadog|noop). Use comma-separated list for multiple.",
-      "default": "console",
+      "description": "The (namespaced) reporter implementation(s) to use. Use comma-separated list for multiple reporters.",
+      "default": "noop",
       "type": "string",
       "required": false
     },
@@ -35,21 +35,21 @@
       "type": "number",
       "required": true
     },
-    "datadog": {
+    "reporters:console": {
+      "type": "json",
+      "required": true,
+      "default": {
+        "stream": "debug"
+      },
+      "description": "Settings for the console reporter."
+    },
+    "reporters:datadog": {
       "type": "json",
       "required": true,
       "default": {
         "dd-agent-url": "http://localhost:8126/v0.4/traces"
       },
       "description": "Settings for the datadog reporter."
-    },
-    "console": {
-      "type": "json",
-      "required": true,
-      "default": {
-        "level": "debug"
-      },
-      "description": "Settings for the console reporter."
     }
   }
 }

@@ -1,17 +1,16 @@
 'use strict'
 
 const createRouter = require('@arangodb/foxx/router')
-const path = require('path')
-const fs = require('fs')
+const { basename, join } = require('path')
+const { list, isDirectory } = require('fs')
 const recordSpans = require('./lib/operations/span')
 
 const router = createRouter()
-const routeBase = `${__dirname}/lib/routes`
-const routes = fs
-  .list(routeBase)
-  .filter(route => fs.isDirectory(`${routeBase}/${route}`))
+const routeBase = join(module.context.basePath, 'lib', 'routes')
+const routes = list(routeBase).filter(route => isDirectory(`${routeBase}/${route}`))
+
 routes.forEach(route => {
-  const mountPath = path.basename(route, '.js')
+  const mountPath = basename(route, '.js')
   const childRouter = require(`./lib/routes/${route}`)
   router.use(`/${mountPath}`, childRouter)
 })
