@@ -1,6 +1,6 @@
 {
   "name": "foxx-tracer-collector",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A collector service for foxx-tracer",
   "repository": {
     "type": "git",
