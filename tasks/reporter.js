@@ -18,7 +18,7 @@ module.exports = function (grunt) {
             err = new Error('Both "pkg" and "namespace" must be non-empty.')
           } else if (Object.keys(reporters).includes(namespace)) {
             err = new Error(`Namespace '${namespace}' is already in use in 'reporters.json'.`)
-          } else if (manifest.configuration[`reporters:${namespace}`]) {
+          } else if (manifest.configuration[`reporters-${namespace}`]) {
             err = new Error(`Namespace '${namespace}' is already in use in manifest configuration.`)
           } else {
             pkg = parse(pkg).name
@@ -47,7 +47,7 @@ module.exports = function (grunt) {
             task = ['exec', 'root', 'npm', 'uninstall', pkg, '-s'].join(':')
             grunt.task.run(task)
 
-            delete manifest.configuration[`reporters:${namespace}`]
+            delete manifest.configuration[`reporters-${namespace}`]
             grunt.file.write('manifest.json', JSON.stringify(manifest, null, 2))
 
             delete reporters[namespace]
@@ -68,7 +68,7 @@ module.exports = function (grunt) {
 
             const mConfFile = `node_modules/${pkg}/manifest-config.json`
             const mConf = loadJSON(grunt, mConfFile)
-            manifest.configuration[`reporters:${namespace}`] = Object.assign({
+            manifest.configuration[`reporters-${namespace}`] = Object.assign({
               type: 'json',
               required: true,
               default: {}

@@ -1,7 +1,7 @@
 {
   "$schema": "http://json.schemastore.org/foxx-manifest",
   "name": "foxx-tracer-collector",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "A collector service for foxx-tracer",
   "keywords": [
     "opentracing",
@@ -24,7 +24,7 @@
   },
   "configuration": {
     "reporters": {
-      "description": "The (namespaced) reporter implementation(s) to use. Use comma-separated list for multiple reporters.",
+      "description": "The namespaced reporters to use. Use comma-separated list for multiple reporters. Valid values are `noop`, and the keys in `reporters.json`.",
       "default": "noop",
       "type": "string",
       "required": false
@@ -35,7 +35,7 @@
       "type": "number",
       "required": true
     },
-    "reporters:console": {
+    "reporters-console": {
       "type": "json",
       "required": true,
       "default": {
@@ -43,7 +43,7 @@
       },
       "description": "Settings for the console reporter."
     },
-    "reporters:datadog": {
+    "reporters-datadog": {
       "type": "json",
       "required": true,
       "default": {
