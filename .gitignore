@@ -6,4 +6,3 @@ node_modules
 /dist
 /test/reports/*
 !/test/reports/.gitkeep
-/reporters.json
