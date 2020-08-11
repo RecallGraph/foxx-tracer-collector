@@ -14,7 +14,8 @@ module.exports = function (grunt) {
         'lib',
         'scripts',
         'Gruntfile.js',
-        'tasks'
+        'tasks',
+        'reporters.json'
       ],
       options: {
         configFile: '.eslintrc.json',

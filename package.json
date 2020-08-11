@@ -16,9 +16,9 @@
   "author": "Aditya Mukhopadhyay",
   "license": "MIT",
   "dependencies": {
-    "@recallgraph/foxx-tracer": "^0.1.0",
-    "@recallgraph/foxx-tracer-reporter-console": "0.0.2",
-    "@recallgraph/foxx-tracer-reporter-datadog": "0.0.2",
+    "@recallgraph/foxx-tracer": "^1.0.0",
+    "@recallgraph/foxx-tracer-reporter-console": "^2.0.0",
+    "@recallgraph/foxx-tracer-reporter-datadog": "^2.0.0",
     "opentracing": "^0.14.4"
   },
   "devDependencies": {
@@ -35,7 +35,8 @@
     "grunt-exec": "^3.0.0",
     "gruntify-eslint": "^5.0.0",
     "husky": "^1.3.1",
-    "lint-staged": "^8.1.5"
+    "lint-staged": "^8.1.5",
+    "parse-package-name": "^0.1.0"
   },
   "husky": {
     "hooks": {

@@ -29,17 +29,27 @@
       "type": "string",
       "required": false
     },
-    "dd-agent-url":  {
-      "description": "The Datadog agent URL where to publish finished spans (used by the datadog reporter).",
-      "default": "http://localhost:8126/v0.4/traces",
-      "type": "string",
-      "required": false
-    },
-    "reported-span-ttl":  {
+    "reported-span-ttl": {
       "description": "The TTL (in seconds) for reported spans. A value < 300 is ignored and a TTL of 300 is used instead.",
       "default": 3600,
       "type": "number",
       "required": true
+    },
+    "datadog": {
+      "type": "json",
+      "required": true,
+      "default": {
+        "dd-agent-url": "http://localhost:8126/v0.4/traces"
+      },
+      "description": "Settings for the datadog reporter."
+    },
+    "console": {
+      "type": "json",
+      "required": true,
+      "default": {
+        "level": "debug"
+      },
+      "description": "Settings for the console reporter."
     }
   }
 }
