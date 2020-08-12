@@ -1,6 +1,6 @@
 {
   "name": "foxx-tracer-collector",
-  "version": "1.0.1",
+  "version": "0.0.3",
   "description": "A collector service for foxx-tracer",
   "repository": {
     "type": "git",
@@ -16,8 +16,8 @@
   "author": "Aditya Mukhopadhyay",
   "license": "MIT",
   "dependencies": {
-    "@recallgraph/foxx-tracer": "^2.0.0",
-    "@recallgraph/foxx-tracer-reporter-console": "^4.0.0",
+    "@recallgraph/foxx-tracer": "^2.0.1",
+    "@recallgraph/foxx-tracer-reporter-console": "^4.0.1",
     "opentracing": "^0.14.4"
   },
   "devDependencies": {

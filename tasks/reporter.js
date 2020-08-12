@@ -3,6 +3,14 @@
 const manifest = require('../manifest.json')
 const parse = require('parse-package-name')
 
+const CONFIG_KEY_REGEX = /^[_$a-z][-_$a-z0-9]*$/
+
+function loadJSON (grunt, file) {
+  const { exists, readJSON } = grunt.file
+
+  return exists(file) ? readJSON(file) : {}
+}
+
 module.exports = function (grunt) {
   grunt.registerTask('reporter', 'Manage foxx-tracer-reporter plugins.',
     function (command) {
@@ -20,6 +28,9 @@ module.exports = function (grunt) {
             err = new Error(`Namespace '${namespace}' is already in use in 'reporters.json'.`)
           } else if (manifest.configuration[`reporters-${namespace}`]) {
             err = new Error(`Namespace '${namespace}' is already in use in manifest configuration.`)
+          } else if (!CONFIG_KEY_REGEX.test(namespace)) {
+            err = new Error(`Namespace '${namespace}' is not a valid configuration key. See 
+            https://www.arangodb.com/docs/stable/foxx-reference-configuration.html for more information.`)
           } else {
             pkg = parse(pkg).name
             grunt.log.writeln(`Installing reporter plugin '${pkg}' under '${namespace}'...`)
@@ -88,10 +99,4 @@ module.exports = function (grunt) {
         grunt.fatal(err)
       }
     })
-}
-
-function loadJSON (grunt, file) {
-  const { exists, readJSON } = grunt.file
-
-  return exists(file) ? readJSON(file) : {}
 }

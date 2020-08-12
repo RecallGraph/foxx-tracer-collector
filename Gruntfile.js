@@ -14,8 +14,7 @@ module.exports = function (grunt) {
         'lib',
         'scripts',
         'Gruntfile.js',
-        'tasks',
-        'reporters.json'
+        'tasks'
       ],
       options: {
         configFile: '.eslintrc.json',
@@ -43,7 +42,8 @@ module.exports = function (grunt) {
               'main.js',
               'manifest.json',
               'package.json',
-              'README.md'
+              'README.md',
+              'reporters.json'
             ],
             dest: '<%= buildDir %>'
           }
