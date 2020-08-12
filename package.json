@@ -18,7 +18,7 @@
   "dependencies": {
     "@recallgraph/foxx-tracer": "^2.0.11",
     "@recallgraph/foxx-tracer-reporter-console": "^5.0.0",
-    "@recallgraph/foxx-tracer-reporter-datadog": "^4.0.1",
+    "@recallgraph/foxx-tracer-reporter-datadog": "^5.0.0",
     "opentracing": "^0.14.4"
   },
   "devDependencies": {
