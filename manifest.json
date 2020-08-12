@@ -42,6 +42,14 @@
         "stream": "debug"
       },
       "description": "Settings for the console reporter."
+    },
+    "reporters-datadog": {
+      "type": "json",
+      "required": true,
+      "default": {
+        "dd-agent-url": "http://localhost:8126/v0.4/traces"
+      },
+      "description": "Settings for the datadog reporter."
     }
   }
 }

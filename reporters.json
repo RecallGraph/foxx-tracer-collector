@@ -1,3 +1,4 @@
 {
-  "console": "@recallgraph/foxx-tracer-reporter-console"
+  "console": "@recallgraph/foxx-tracer-reporter-console",
+  "datadog": "@recallgraph/foxx-tracer-reporter-datadog"
 }
