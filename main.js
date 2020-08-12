@@ -3,7 +3,7 @@
 const createRouter = require('@arangodb/foxx/router')
 const { basename, join } = require('path')
 const { list, isDirectory } = require('fs')
-const recordSpans = require('./lib/operations/span')
+const providers = require('./lib/handlers/providers')
 
 const router = createRouter()
 const routeBase = join(module.context.basePath, 'lib', 'routes')
@@ -17,4 +17,4 @@ routes.forEach(route => {
 
 module.context.use(router)
 
-exports.recordSpans = recordSpans
+module.exports = providers
