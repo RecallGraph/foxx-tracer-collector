@@ -25,7 +25,7 @@
   "configuration": {
     "reporters": {
       "description": "The namespaced reporters to use. Use comma-separated list for multiple reporters. Valid values are `noop`, and the keys in `reporters.json`.",
-      "default": "noop",
+      "default": "console",
       "type": "string",
       "required": false
     },
