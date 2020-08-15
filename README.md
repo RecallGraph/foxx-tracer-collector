@@ -22,10 +22,10 @@ The collector, in turn, asynchronously persists the trace to DB (via the Tasks A
 *foxx-tracer-collector* uses a system of pluggable *reporters* to push its received traces to various destinations. More than one reporter can be active at a time, in which case all of them are invoked to push the traces to their respective endpoints.
 
 The collector comes with two reporters pre-installed:
-1. A *noop* reporter that does nothing. This reporter cannot be removed, but it can be disabled.
-1. A [console reporter](https://github.com/RecallGraph/foxx-tracer-reporter-console) that prints traces to the ArangoDB log. This reporter can be removed or disabled if required.
+1. A *noop* reporter that does nothing. This reporter is baked in and cannot be removed, but it can be disabled.
+1. A [console reporter](https://github.com/RecallGraph/foxx-tracer-reporter-console) that prints traces to the ArangoDB log. This reporter is pluggable and can be removed or disabled if required.
 
-Neither of these reporters is particularly useful for production setups, but are useful for debugging purposes.
+Neither of these reporters is particularly useful for production setups, but they are useful for debugging purposes.
 
 More useful (for actual trace capture and analysis) reporters can be found by searching the [NPM registry](https://www.npmjs.com/) for the keyword **"foxx-tracer-reporter"**. At the time of this writing, there is a production-ready reporter available for the [Datadog Cloud Monitoring Service](https://www.datadoghq.com/) service. It is named [foxx-tracer-reporter-datadog](https://github.com/RecallGraph/foxx-tracer-reporter-datadog).
 
