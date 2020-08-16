@@ -4,7 +4,7 @@
   "description": "A collector service for foxx-tracer",
   "repository": {
     "type": "git",
-    "url": "https://github.com/RecallGraph/RecallGraph"
+    "url": "https://github.com/RecallGraph/foxx-tracer-collector"
   },
   "main": "main.js",
   "scripts": {
