@@ -1,7 +1,7 @@
 {
   "$schema": "http://json.schemastore.org/foxx-manifest",
   "name": "foxx-tracer-collector",
-  "version": "1.0.0",
+  "version": "0.0.8",
   "description": "A collector service for foxx-tracer",
   "keywords": [
     "opentracing",
