@@ -78,7 +78,7 @@ module.exports = function (grunt) {
     bundle: {
       command: ['build', 'foxx', 'bundle'],
       options: {
-        '--outfile': '../dist/RecallGraph-<%= manifest.version %>.zip'
+        '--outfile': '../dist/foxx-tracer-collector-<%= manifest.version %>.zip'
       },
       flags: ['-f']
     },
