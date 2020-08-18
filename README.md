@@ -27,7 +27,7 @@ The collector comes with two reporters pre-installed:
 
 Neither of these reporters is particularly useful for production setups, but they are useful for debugging purposes.
 
-More useful (for actual trace capture and analysis) reporters can be found by searching the [NPM registry](https://www.npmjs.com/) for the keyword **"foxx-tracer-reporter"**. At the time of this writing, there is a production-ready reporter available for the [Datadog Cloud Monitoring Service](https://www.datadoghq.com/) service. It is named [foxx-tracer-reporter-datadog](https://github.com/RecallGraph/foxx-tracer-reporter-datadog).
+More useful (for actual trace capture and analysis) reporters can be found by searching the [NPM registry](https://www.npmjs.com/) for the keyword **"foxx-tracer-reporter"**. At the time of this writing, there is a production-ready reporter available for the [Datadog Cloud Monitoring Service](https://www.datadoghq.com/). It is named [foxx-tracer-reporter-datadog](https://github.com/RecallGraph/foxx-tracer-reporter-datadog).
 
 ### Custom Reporters
 If you don't find a reporter for your specific endpoint, you can easily [write one yourself](https://github.com/RecallGraph/foxx-tracer-reporter-console#writing-your-own-reporter)!
